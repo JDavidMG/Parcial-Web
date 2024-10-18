@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aeropuerto - Sistema de Gestión</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://s1.elespanol.com/2020/09/25/omicrono/tecnologia/tecnologia-tecnologia_523458626_160950482_1024x576.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            color: white;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        #flightResults {
+            text-align: left;
+        }
+        
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+        <a class="navbar-brand" href="index.html">
+            <i class="fas fa-plane-departure fa-3x text-warning"></i> 
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+    <div class="info-container">
+        <div class="navbar-time" id="currentTime"></div> 
+        <div class="weather-info">🌤️ 23°C, Soleado</div> 
+        <div class="location">📍 Ciudad de Bogotá</div> 
+    </div>
+    <div class="container mt-5">
+        <div class="content">
+            <h2>Consulta de Vuelos</h2>
+            <form id="flightSearchForm">
+                <div class="form-group">
+                    <label for="origin">Aeropuerto de Origen</label>
+                    <select class="form-control" id="origin" required>
+                        <option value="" disabled selected>Seleccione un aeropuerto</option>
+                        <option value="BOG">El Dorado (BOG)</option>
+                        <option value="MDE">José María Córdova (MDE)</option>
+                        <option value="CLO">Alfonso Bonilla Aragón (CLO)</option>
+                        <option value="CTG">Rafael Núñez (CTG)</option>
+                        <option value="BAQ">Ernesto Cortissoz (BAQ)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="destination">Aeropuerto de Destino</label>
+                    <select class="form-control" id="destination" required>
+                        <option value="" disabled selected>Seleccione un aeropuerto</option>
+                        <option value="BOG">El Dorado (BOG)</option>
+                        <option value="MDE">José María Córdova (MDE)</option>
+                        <option value="CLO">Alfonso Bonilla Aragón (CLO)</option>
+                        <option value="CTG">Rafael Núñez (CTG)</option>
+                        <option value="BAQ">Ernesto Cortissoz (BAQ)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="date">Fecha</label>
+                    <input type="date" class="form-control" id="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="status">Estado del Vuelo</label>
+                    <select class="form-control" id="status">
+                        <option value="all">Todos</option>
+                        <option value="on-time">A tiempo</option>
+                        <option value="delayed">Retrasado</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Consultar</button>
+            </form>
+            <div id="flightResults" class="mt-4"></div> 
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Aeropuerto - Todos los derechos reservados</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script>
+        function updateTime() {
+            const now = new Date();
+            let hours = now.getHours();
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12; 
+            document.getElementById('currentTime').innerText = `${hours}:${minutes} ${ampm}`;
+        }
+        setInterval(updateTime, 1000);
+        updateTime(); 
+    </script>
+</body>
+</html>

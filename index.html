@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aeropuerto - Sistema de Gestión</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+        <a class="navbar-brand" href="index.html">
+            <i class="fas fa-plane-departure fa-3x text-warning"></i>
+        </a>
+        <div class="info-container">
+            <div class="navbar-time" id="currentTime"></div>
+            <div class="weather-info">🌤️ 23°C, Soleado  </div>
+            <div class="location">📍 Ciudad de Bogotá</div>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+    <div class="container mt-5">
+        <div class="content">
+            <h1>Bienvenido al Sistema de Gestión del Aeropuerto</h1>
+            <p>Utiliza el menú de navegación para acceder a las diferentes funcionalidades del sistema.</p>
+            <p>En nuestro aeropuerto, nos esforzamos por ofrecer un servicio excepcional a todos nuestros pasajeros, garantizando un viaje seguro y cómodo. Contamos con diversas rutas nacionales e internacionales, así como una amplia gama de servicios adicionales para mejorar su experiencia de viaje.</p>
+            <form class="form-inline justify-content-center mt-3">
+                <div class="input-group">
+                    <input class="form-control" type="search" placeholder="Buscar vuelos, empleados o estacionamientos" aria-label="Buscar">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="submit">Buscar</button>
+                    </div>
+                </div>
+            </form>
+            <div class="row mt-5">
+                <div class="col-6 col-md-3 text-center">
+                    <a href="consulta_vuelos.html">
+                        <i class="fas fa-plane fa-3x text-warning"></i>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3 text-center">
+                    <a href="gestion_empleados.html">
+                        <i class="fas fa-user-friends fa-3x text-warning"></i>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3 text-center">
+                    <a href="reserva_estacionamiento.html">
+                        <i class="fas fa-bus fa-3x text-warning"></i>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3 text-center">
+                    <a href="reportes_incidencias.html">
+                        <i class="fas fa-tasks fa-3x text-warning"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Aeropuerto - Todos los derechos reservados</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+</html>

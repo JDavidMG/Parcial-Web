@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aeropuerto - Sistema de Gestión</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://www.rcnradio.com/_next/image?url=https%3A%2F%2Ffiles.rcnradio.com%2Fpublic%2Fstyles%2F16_9%2Fpublic%2F2023-06%2Ffotos_-_2023-06-09t094118.381.jpg%3FVersionId%3DNfcv5UOqW.YU7zR0wctqIZQ.r1U.lIDV%26itok%3DMSObZaUs&w=3840&q=75');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            color: white;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+        }
+        .info-container {
+            background-color: rgba(0, 0, 0, 0.7); 
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        #reservationTable {
+            margin-top: 20px;
+            color: white;
+        }
+        #reservationTable th, #reservationTable td {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+        <a class="navbar-brand" href="index.html">
+            <i class="fas fa-plane-departure fa-3x text-warning"></i> 
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+    <div class="info-container">
+        <div class="navbar-time" id="currentTime"></div> 
+        <div class="weather-info">🌤️ 23°C, Soleado</div> 
+        <div class="location">📍 Ciudad de Bogotá</div> 
+    </div>
+    <div class="container mt-5">
+        <div class="content">
+            <h2>Reserva de Estacionamiento</h2>
+            <form id="parkingReservationForm">
+                <div class="form-group">
+                    <label for="entryDate">Fecha y Hora de Entrada</label>
+                    <input type="datetime-local" class="form-control" id="entryDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="exitDate">Fecha y Hora de Salida</label>
+                    <input type="datetime-local" class="form-control" id="exitDate" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Reservar</button>
+            </form>
+            <table class="table table-striped mt-5" id="reservationTable">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Fecha y Hora de Entrada</th>
+                        <th>Fecha y Hora de Salida</th>
+                    </tr>
+                </thead>
+                <tbody id="reservationTableBody">
+                    <tr>
+                        <td>1</td>
+                        <td>2024-10-17 08:00</td>
+                        <td>2024-10-17 18:00</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>2024-10-18 09:00</td>
+                        <td>2024-10-18 20:00</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>2024-10-19 07:30</td>
+                        <td>2024-10-19 17:30</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Aeropuerto - Todos los derechos reservados</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        const reservationTableBody = document.getElementById('reservationTableBody');
+        const form = document.getElementById('parkingReservationForm');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            const entryDate = document.getElementById('entryDate').value;
+            const exitDate = document.getElementById('exitDate').value;
+            if (entryDate && exitDate && new Date(entryDate) < new Date(exitDate)) {
+                const newRow = document.createElement('tr');
+                const reservationCount = reservationTableBody.rows.length + 1;
+                newRow.innerHTML = `
+                    <td>${reservationCount}</td>
+                    <td>${entryDate}</td>
+                    <td>${exitDate}</td>
+                `;
+                reservationTableBody.appendChild(newRow);
+                form.reset(); 
+            } else {
+                alert("La fecha de entrada debe ser anterior a la de salida.");
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aeropuerto - Sistema de Gestión</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://www.beaware360.com/wp-content/uploads/2024/01/Call-Center-Gestion-de-llamadas-telefonicas.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            color: white;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .list-group-item {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+        }
+
+        footer {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+        <a class="navbar-brand" href="index.html">
+            <i class="fas fa-plane-departure fa-3x text-warning"></i>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+    <div class="info-container">
+        <div class="navbar-time" id="currentTime"></div> 
+        <div class="weather-info">🌤️ 23°C, Soleado</div> 
+        <div class="location">📍 Ciudad de Bogotá</div> 
+    </div>
+    <div class="container mt-5">
+        <div class="content">
+            <h2>Reporte de Incidencias</h2>
+            <form id="incidentReportForm">
+                <div class="form-group">
+                    <label for="incidentDescription">Descripción de la Incidencia</label>
+                    <textarea class="form-control" id="incidentDescription" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Registrar Incidencia</button>
+            </form>
+            <div id="incidentReports" class="mt-4">
+                <h4>Incidencias Registradas</h4>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <strong>Incidencia #1:</strong> Retraso en el vuelo AV123 debido a condiciones climáticas adversas.
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Incidencia #2:</strong> Malfuncionamiento del sistema de iluminación en la pista 2.
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Incidencia #3:</strong> Falla técnica en la torre de control, comunicación interrumpida durante 10 minutos.
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Incidencia #4:</strong> Problema con el sistema de check-in de la aerolínea XYZ.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Aeropuerto - Todos los derechos reservados</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Manejar el envío del formulario de reporte de incidencias
+            $('#incidentReportForm').on('submit', function(event) {
+                event.preventDefault(); // Evitar el envío del formulario
+
+                const description = $('#incidentDescription').val(); // Obtener la descripción de la incidencia
+                const incidentNumber = $('#incidentReports .list-group-item').length + 1; // Número de la nueva incidencia
+
+                // Agregar la nueva incidencia a la lista con formato igual
+                $('#incidentReports .list-group').append(`
+                    <li class="list-group-item">
+                        <strong>Incidencia #${incidentNumber}:</strong> ${description}.
+                    </li>
+                `);
+
+                $('#incidentDescription').val(''); // Limpiar el campo de texto
+            });
+        });
+    </script>
+</body>
+</html>
