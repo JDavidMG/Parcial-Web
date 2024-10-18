@@ -20,27 +20,40 @@
             display: flex;
             flex-direction: column;
         }
-        footer {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            text-align: center;
-            color: white;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 10px;
-        }
+        
         .info-container {
             background-color: rgba(0, 0, 0, 0.7); 
             padding: 10px;
             border-radius: 5px;
             margin-bottom: 20px;
         }
+
         #reservationTable {
             margin-top: 20px;
             color: white;
+            width: 100%;
         }
+
         #reservationTable th, #reservationTable td {
             color: white;
+        }
+
+        .table-container {
+            max-height: 200px; 
+            overflow-y: auto;
+        }
+
+        .table-container::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        .table-container::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 5px;
+        }
+        
+        .table-container::-webkit-scrollbar-thumb:hover {
+            background: #555;
         }
     </style>
 </head>
@@ -72,32 +85,34 @@
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Reservar</button>
             </form>
-            <table class="table table-striped mt-5" id="reservationTable">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Fecha y Hora de Entrada</th>
-                        <th>Fecha y Hora de Salida</th>
-                    </tr>
-                </thead>
-                <tbody id="reservationTableBody">
-                    <tr>
-                        <td>1</td>
-                        <td>2024-10-17 08:00</td>
-                        <td>2024-10-17 18:00</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>2024-10-18 09:00</td>
-                        <td>2024-10-18 20:00</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>2024-10-19 07:30</td>
-                        <td>2024-10-19 17:30</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-container">
+                <table class="table table-striped mt-5" id="reservationTable">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Fecha y Hora de Entrada</th>
+                            <th>Fecha y Hora de Salida</th>
+                        </tr>
+                    </thead>
+                    <tbody id="reservationTableBody">
+                        <tr>
+                            <td>1</td>
+                            <td>2024-10-17 08:00</td>
+                            <td>2024-10-17 18:00</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2024-10-18 09:00</td>
+                            <td>2024-10-18 20:00</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>2024-10-19 07:30</td>
+                            <td>2024-10-19 17:30</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 

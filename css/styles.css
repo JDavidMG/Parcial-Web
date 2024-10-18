@@ -1,3 +1,12 @@
+footer {/* Me gusta mayra */
+    background-color: #000; 
+    color: white;          
+    text-align: center;
+    padding: 15px 0;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+}
 body {
     font-family: Arial, sans-serif;
     background-image: url('../imagenes/1.jpeg');
@@ -9,82 +18,65 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
-}
-.info-container {
-    position: absolute;
-    top: 20px; 
-    right: 20px; 
-    background-color: rgba(0, 0, 0, 0.7); 
-    padding: 10px;
-    border-radius: 5px; 
+    justify-content: space-between; 
 }
 
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 10px;
-}
 .container {
     max-width: 800px;
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px; /* Padding adicional para móviles */
+    padding: 10px; 
 }
 
 .content {
     text-align: center;
-    padding: 20px; /* Ajuste para móviles */
+    padding: 20px; 
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
+    margin-top: -50px;
 }
+
 .info-container {
-    position: absolute; 
-    top: 20px; 
-    right: 20px; 
-    background-color: rgba(0, 0, 0, 0.7); 
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
     padding: 10px;
-    border-radius: 5px; 
-}   
-footer {
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    text-align: center;
-    padding: 15px 0;
-    width: 100%;
+    border-radius: 5px;
 }
 
 @media (max-width: 768px) {
     .content {
-        padding: 10px; /* Menos padding en móviles */
+        padding: 10px; 
     }
     .row .col-md-3 {
-        margin-bottom: 10px; /* Espaciado más pequeño en móviles */
+        margin-bottom: 10px; 
     }
 }
+
 .navbar .navbar-time {
     color: #fff;
-    padding-right: 15px; /* Espaciado a la derecha */
-    font-size: 1.2rem; /* Tamaño de la fuente */
-    text-align: right; /* Alinea el texto a la derecha */
+    padding-right: 15px; 
+    font-size: 1.2rem;
+    text-align: right; 
 }
+
 .weather-info {
-    font-size: 1rem; /* Tamaño de la fuente para el clima */
-    color: #fff; /* Color del texto del clima */
+    font-size: 1rem; 
+    color: #fff; 
 }
+
 .navbar .location {
-    color: #fff; /* Color del texto de la ubicación */
-    margin-right: 15px; /* Espaciado a la derecha */
-    font-size: 1rem; /* Tamaño de la fuente de la ubicación */
+    color: #fff; 
+    margin-right: 15px;
+    font-size: 1rem;
 }
+
 .navbar .info-container {
-    display: flex; /* Usa flexbox para alinear */
-    flex-direction: column; /* Coloca los elementos en columna */
-    align-items: flex-end; /* Alinea a la derecha */
-    margin-left: auto; /* Empuja la información hacia la derecha */
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-end;
+    margin-left: auto;
 }

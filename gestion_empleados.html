@@ -22,6 +22,11 @@
         .table th, .table td {
             color: white; 
         }
+        .table-container {
+            max-height: 300px; 
+            overflow-y: scroll;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -41,17 +46,19 @@
     <div class="container mt-5">
         <div class="content">
             <h2>Gestión de Empleados</h2>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Rol</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody id="employeeTableBody">
-                </tbody>
-            </table>
+            <div class="table-container">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Rol</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="employeeTableBody">
+                    </tbody>
+                </table>
+            </div>
             <button class="btn btn-primary btn-block" id="addEmployeeBtn">Agregar Empleado</button>
         </div>
     </div>
@@ -62,6 +69,5 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="js/scripts.js"></script>
-    
 </body>
 </html>

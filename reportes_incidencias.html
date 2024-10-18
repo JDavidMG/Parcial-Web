@@ -14,11 +14,18 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            height: 100vh;
+            min-height: 100vh;
             color: white;
             margin: 0;
             display: flex;
             flex-direction: column;
+        }
+
+        .info-container {
+            background-color: rgba(0, 0, 0, 0.7); 
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
         }
 
         .list-group-item {
@@ -27,8 +34,18 @@
             border: none;
         }
 
+        #incidentReports {
+            max-height: 200px; /* Altura máxima fija para el scroll */
+            overflow-y: auto; /* Habilita el scroll vertical */
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
         footer {
             color: white;
+            text-align: center;
+            margin-top: auto;
         }
     </style>
 </head>
@@ -85,21 +102,20 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function() {
-            // Manejar el envío del formulario de reporte de incidencias
             $('#incidentReportForm').on('submit', function(event) {
-                event.preventDefault(); // Evitar el envío del formulario
+                event.preventDefault(); 
 
-                const description = $('#incidentDescription').val(); // Obtener la descripción de la incidencia
-                const incidentNumber = $('#incidentReports .list-group-item').length + 1; // Número de la nueva incidencia
+                const description = $('#incidentDescription').val(); 
+                const incidentNumber = $('#incidentReports .list-group-item').length + 1; 
 
-                // Agregar la nueva incidencia a la lista con formato igual
+                
                 $('#incidentReports .list-group').append(`
                     <li class="list-group-item">
                         <strong>Incidencia #${incidentNumber}:</strong> ${description}.
                     </li>
                 `);
 
-                $('#incidentDescription').val(''); // Limpiar el campo de texto
+                $('#incidentDescription').val(''); 
             });
         });
     </script>
